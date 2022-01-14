@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - name: Checkout source
+    - name: Checkout
       uses: actions/checkout@master
 
     - name: Initialization environment
