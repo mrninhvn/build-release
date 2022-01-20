@@ -58,13 +58,13 @@ jobs:
 
     - name: Clone source code
       run: |
-        git clone --branch `cat release.tag` https://github.com/mrninhvn/x-wrt.git
+        git clone --branch `cat release.tag` https://github.com/x-wrt/x-wrt.git
         git clone https://github.com/mrninhvn/ot-br-posix.git
-        echo src-link openthread "$(pwd)/ot-br-posix/etc/openwrt" >>x-wrt/feeds.conf.default
-        cat x-wrt/feeds.conf.default
 
     - name: Update feeds
-      run: cd x-wrt && ./scripts/feeds update -a
+      run: |
+        echo src-link openthread "$(pwd)/ot-br-posix/etc/openwrt" >>x-wrt/feeds.conf.default
+        cd x-wrt && ./scripts/feeds update -a
 
     - name: Install feeds
       run: cd x-wrt && ./scripts/feeds install -a
