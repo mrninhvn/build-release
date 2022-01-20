@@ -60,7 +60,7 @@ jobs:
       run: |
         git clone --branch `cat release.tag` https://github.com/mrninhvn/x-wrt.git
         git clone https://github.com/mrninhvn/ot-br-posix.git
-        echo src-link openthread "/home/runner/ot-br-posix/etc/openwrt" >>x-wrt/feeds.conf.default
+        echo src-link openthread "$(pwd)/ot-br-posix/etc/openwrt" >>x-wrt/feeds.conf.default
         cat x-wrt/feeds.conf.default
 
     - name: Update feeds
