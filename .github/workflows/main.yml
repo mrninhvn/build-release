@@ -65,7 +65,7 @@ jobs:
     - name: Install feeds
       run: cd x-wrt && ./scripts/feeds install -a
 
-    - name: Building rom
+    - name: Building
       run: |
         cp *.sh x-wrt/
         cp release.tag x-wrt/
