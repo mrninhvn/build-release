@@ -63,7 +63,15 @@ jobs:
 
     - name: Update feeds
       run: |
-        echo src-link openthread "$(pwd)/ot-br-posix/etc/openwrt" >>x-wrt/feeds.conf.default
+        echo \
+          "src-git packages https://github.com/x-wrt/packages.git \n\
+          src-git luci https://github.com/x-wrt/luci.git \n\
+          src-git routing https://github.com/x-wrt/routing.git \n\
+          src-git telephony https://github.com/x-wrt/telephony.git" \
+        >> x-wrt/feeds.conf
+        echo "src-git x https://github.com/mrninhvn/com.x-wrt.git" >> x-wrt/feeds.conf
+        echo src-link openthread "$(pwd)/ot-br-posix/etc/openwrt" >> x-wrt/feeds.conf
+        cat x-wrt/feeds.conf
         cd x-wrt && ./scripts/feeds update -a
 
     - name: Install feeds
