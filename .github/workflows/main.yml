@@ -57,7 +57,11 @@ jobs:
         sudo -E apt-get clean
 
     - name: Clone source code
-      run: git clone --branch `cat release.tag` https://github.com/mrninhvn/x-wrt.git
+      run: |
+        git clone --branch `cat release.tag` https://github.com/mrninhvn/x-wrt.git
+        git clone https://github.com/mrninhvn/ot-br-posix.git
+        echo src-link openthread "ot-br-posix/etc/openwrt" >>x-wrt/feeds.conf.default
+        cat x-wrt/feeds.conf.default
 
     - name: Update feeds
       run: cd x-wrt && ./scripts/feeds update -a
