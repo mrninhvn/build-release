@@ -5,6 +5,7 @@ CFGS=`cat ./feeds/x/rom/lede/cfg.list | grep $TARGET`
 
 export CFGS="`echo $CFGS`"
 export WORKFLOW="1"
+sed -i '/# CONFIG_PACKAGE_kmod-usb-acm is not set/c\CONFIG_PACKAGE_kmod-usb-acm=y' ./.config
 
 echo starting build.
 echo starting build..
