@@ -4,7 +4,7 @@
 #   Author: ptpt52
 #=================================================
 
-name: x-wrt-master=ramips-mt7620
+name: x-wrt-21.10_b202201172351=ramips-mt7620
 
 on: 
   release:
@@ -93,7 +93,8 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: x-wrt-master=ramips-mt7620
+        name: x-wrt-21.10_b202201172351=ramips-mt7620
         path: |
           x-wrt/rom
           x-wrt/.config
+          x-wrt/bin/packages/mipsel_24kc/openthread
