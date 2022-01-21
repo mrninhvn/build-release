@@ -60,6 +60,9 @@ jobs:
       run: |
         git clone --branch `cat release.tag` https://github.com/x-wrt/x-wrt.git
         git clone https://github.com/mrninhvn/ot-br-posix.git
+        cd ot-br-posix/
+        git submodule update --init
+        cd ..
 
     - name: Update feeds
       run: |
