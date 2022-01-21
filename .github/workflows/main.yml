@@ -78,7 +78,7 @@ jobs:
     - name: Install feeds
       run: cd x-wrt && ./scripts/feeds install -a
 
-    - name: Building
+    - name: Building firmware
       run: |
         cp *.sh x-wrt/
         cp release.tag x-wrt/
